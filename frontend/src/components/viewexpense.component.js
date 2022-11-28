@@ -76,7 +76,10 @@ export default class ViewExpense extends Component{
 
         let optionList  =
                 Categories.map( (value) =>
-                    <Dropdown.Item key={value.id} onClick={() => this.handleOnClick(value.name)}>{value.name}</Dropdown.Item>
+                    <Dropdown.Item key={value.id} onClick={() => this.handleOnClick(value.name)}>{value.name}
+                    
+                    </Dropdown.Item>
+                    
                 );
         
         var category = this.state.category;

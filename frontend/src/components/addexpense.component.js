@@ -96,11 +96,25 @@ class AddExpense extends Component{
     
     render() {
         const {Categories} =this.state;
+        const preventPasteNegative = (e) => {
+            const clipboardData = e.clipboardData || window.clipboardData;
+            const pastedData = parseFloat(clipboardData.getData('text'));
+        
+            if (pastedData < 0) {
+                e.preventDefault();
+            }
+        };
+        
+        const preventMinus = (e) => {
+            if (e.code === 'Minus') {
+                e.preventDefault();
+            }
+        };
 
         let optionList  =
                 Categories.map( (category) =>
                     <option value={category.name} key={category.id}>
-                        {category.name} 
+                         {category.name}
                     </option>
                 )
 
@@ -133,7 +147,8 @@ class AddExpense extends Component{
                                         <div className = "form-group ol-12">
                                             <label for='amount' className='form-label'> Amount </label>
                                             <input placeholder="₹" name="amount" id='amount' className="form-control" 
-                                                type='number' onChange={this.handleChange}/>
+                                                type='number' min="0" step="1" onPaste={preventPasteNegative}
+                                                onKeyPress={preventMinus} onChange={this.handleChange}/>
                                         </div>
 
                                         <div className='col-md-4'>
