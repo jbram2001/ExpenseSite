@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import Moment from 'react-moment';
 import UserService from "../services/user.service";
-
 export default class Home extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       content: "",
       date: new Date()
     };
   }
-
   componentDidMount() {
     UserService.getPublicContent().then(
       response => {
@@ -28,15 +25,11 @@ export default class Home extends Component {
         });
       }
     );
-
     var date = this.state.date;
     date.setMonth(date.getMonth()-1);
     this.setState({date});
   }
-
   render() {
-    
-
     return (
       <div className="container">
         <header className="jumbotron">

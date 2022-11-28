@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
 import AuthService from "../services/auth.service";
-
 import { withRouter } from '../common/with-router';
-
 const required = value => {
   if (!value) {
     return (
@@ -23,7 +20,6 @@ class Login extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
-
     this.state = {
       username: "",
       password: "",
@@ -31,7 +27,6 @@ class Login extends Component {
       message: ""
     };
   }
-
   onChangeUsername(e) {
     this.setState({
       username: e.target.value

@@ -13,7 +13,6 @@ class UserService {
     return axios.get(API_URL_EX + '/'+userId);
   }
 
-
   createExpense(expense){
     return axios.post(API_URL_EX, expense);
   }

@@ -37,7 +37,6 @@ public class Expense {
 
 	public Expense() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
